@@ -13,8 +13,6 @@
 <body>
     
 @yield('content')
-<footer>
-helloword
-</footer>
+
 </body>
 </html>

@@ -1,8 +1,23 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+
+@section('content')
 <div class="container">
-	<div class="row">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+@endif
+                    <!-- {{ __('You are logged in!') }} -->
+
+					<div class="row">
 		<div class="col-12 text-center pt-5">
-			<h1 class="display-one m-5">PHP Laravel Project - CRUD</h1>
+			<h1 class="display-one m-2"> <spam style="color:red">TRU</spam> - CRUD</h1>
 			<div class="text-left"><a href="product/create" class="btn btn-outline-primary">Add new
 				product</a></div>
 
@@ -36,7 +51,7 @@
 			</table>
 		</div>
 	</div>
-</div>
+
 
 
 <div class="modal fade" id="deleteConfirmationModel" tabindex="-1" role="dialog"
@@ -46,7 +61,7 @@
 			<div class="modal-body">Are you sure to delete this record?</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" onClick="dismissModel()">Cancel</button>
-				<form id="delete-frm" class="" action="" method="POST">
+				<form id="delete-frm" class="" action="/product/{{$product->id}}" method="POST">
                     @method('DELETE')
                     @csrf
                     <button class="btn btn-danger">Delete</button>
@@ -73,4 +88,16 @@ function dismissModel() {
 	confirmationModal.classList.add('fade');
 }
 </script>
+                </div>
+
+
+                
+
+	
+
+
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

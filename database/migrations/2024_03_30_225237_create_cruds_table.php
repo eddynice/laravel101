@@ -16,11 +16,9 @@ return new class extends Migration
 
              /* Add additional fields */
              $table->text('title');  // product title
-             $table->text('description');   // description
+             
              $table->text('short_notes');   // short notes
              $table->decimal('price', 10, 2); // price
-             $table->text('image'); // product image
-             $table->text('slug'); // product slug
              
             $table->timestamps();
         });

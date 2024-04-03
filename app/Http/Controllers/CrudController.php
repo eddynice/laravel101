@@ -23,14 +23,14 @@ public function store(Request $request)
 {
     $newPost = new crud();
     $newPost->title = request('title');
-     $newPost->description = request('description');
+    //  $newPost->description = request('description');
      $newPost->short_notes= request('short_notes');
      $newPost->price = request('price');
-     $newPost->image= request('image');
-     $newPost->slug= request('slug');
+    
      $newPost->save();
     
-    return redirect('product/' . $newPost->id . '/edit');
+    return redirect('product');
+    // return redirect('product/' . $newPost->id . '/edit');
 }
 
 public function show(Product $product)
@@ -53,20 +53,30 @@ public function edit($id)
 //     ]);
 // }
 
-public function update(Request $request, Product $product)
+public function update(Request $request, $id)
 {
-    $product->update([
-        'title' => $request->title,
-        'short_notes' => $request->short_notes,
-        'price' => $request->price
-    ]);
-    
-    return redirect('product/' . $product->id . '/edit');
+//    $product->update([
+//         'title' => $request->title,
+//         'short_notes' => $request->short_notes,
+//         'price' => $request->price
+//     ]); 
+
+$editProduct = Crud::findOrFail($id);
+
+$editProduct->title = $request->input('title');
+// $editProduct->description = $request->input('description');
+$editProduct->short_notes= $request->input('short_notes');
+$editProduct->price = $request->input('price');
+
+$editProduct->update();
+return redirect('product')->with('status','updated successfully');
+
 }
 
-public function destroy(Product $product)
+public function destroy($id)
 {
-    $product->delete();
+    $deleteProduct = Crud::findOrFail($id);
+    $deleteProduct->delete();
     return redirect('product/');
 }
 }
