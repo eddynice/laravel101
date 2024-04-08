@@ -79,4 +79,33 @@ public function destroy($id)
     $deleteProduct->delete();
     return redirect('product/');
 }
+
+public function search(Request $request)
+{
+   $projects = project::where([
+    ['name', '!=', Null],
+    [function($query) use ($request){
+        if (($term = $request->term)){
+            $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
+        }
+    }]
+   ])->orderBy("id", "desc")
+   ->pagination(10);
+   //$projects = project::latest()->paginate(5);
+
+   return view('project.view', compact('projects'))
+   ->with('i', (request()->input('page', 1) -1) *5);
+}
+
+
+// public function index()
+// {
+//         $project = Project::query();
+//         if (request('term')) {
+//             $project->where('name', 'Like', '%' . request('term') . '%');
+//         }
+
+//         return $project->orderBy('id', 'DESC')->paginate(10);
+// }
+
 }

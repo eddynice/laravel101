@@ -15,11 +15,63 @@
 @endif
                     <!-- {{ __('You are logged in!') }} -->
 
+
+					<nav class="navbar navbar-light bg-light">
+						<div class="container-fluid">
+						  <a class="navbar-brand">Navbar</a>
+						  <form class="d-flex input-group w-auto">
+							<input
+							  type="search"
+							  class="form-control rounded"
+							  placeholder="Search"
+							  aria-label="Search"
+							  aria-describedby="search-addon"
+							/>
+							<span class="input-group-text border-0" id="search-addon">
+							  <i class="fas fa-search"></i>
+							</span>
+						  </form>
+						</div>
+					  </nav>
+
+
+
+{{-- 
+					  <div>
+						<div class="mx-auto pull-right">
+							<div class="">
+								<form action="{{ route('projects.index') }}" method="GET" role="search">
+				
+									<div class="input-group">
+										<span class="input-group-btn mr-5 mt-1">
+											<button class="btn btn-info" type="submit" title="Search projects">
+												<span class="fas fa-search"></span>
+											</button>
+										</span>
+										<input type="text" class="form-control mr-2" name="term" placeholder="Search projects" id="term">
+										<a href="{{ route('projects.index') }}" class=" mt-1">
+											<span class="input-group-btn">
+												<button class="btn btn-danger" type="button" title="Refresh page">
+													<span class="fas fa-sync-alt"></span>
+												</button>
+											</span>
+										</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+ --}}
+
+
 					<div class="row">
 		<div class="col-12 text-center pt-5">
 			<h1 class="display-one m-2"> <spam style="color:red">TRU</spam> - CRUD</h1>
-			<div class="text-left"><a href="product/create" class="btn btn-outline-primary">Add new
-				product</a></div>
+			
+					<div class="text-left"><a href="product/create" class="btn btn-outline-primary">Add new
+						product</a></div>
+
+		
 
 			<table class="table mt-3  text-left">
 				<thead>
