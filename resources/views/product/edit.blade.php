@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="card">
                
                 <div class="card-body">
@@ -13,8 +13,13 @@
 
 	
 		<div class="text-center pt-5">
-			<h1 class="display-one mt-2"><spam style="color:red">TRU</spam> - Edit</h1>
-			<div class="text-left"><a href="/product" class="btn btn-outline-primary">Product List</a></div>
+			<div class="row">
+				<div class="col"><h1 h2 class="display-one mt-2">Tru</h2></div>
+				<div class="col"><a href="/product" class="btn btn-outline-primary">Product List</a></div>
+			</div>
+
+			
+
 
 			<form id="edit-frm" method="POST" action="{{ url('update/' .$product->id)}}" class="p-3 mt-2">
 				<div class="mb-3">

@@ -9,9 +9,12 @@ class CrudController extends Controller
     //Display a listing of the resource.
 public function index(){
     $products = crud::all(); //fetch all products from DB
-    return view('product.list', ['products' => $products]);
+    return view('product.list',
+    ['products' => $products]);
 }
-// Show the form for creating a new resource
+
+
+ //Show the form for creating a new resource
 public function create(){
     
     return view('product.add');
@@ -55,11 +58,7 @@ public function edit($id)
 
 public function update(Request $request, $id)
 {
-//    $product->update([
-//         'title' => $request->title,
-//         'short_notes' => $request->short_notes,
-//         'price' => $request->price
-//     ]); 
+
 
 $editProduct = Crud::findOrFail($id);
 
@@ -80,32 +79,30 @@ public function destroy($id)
     return redirect('product/');
 }
 
-public function search(Request $request)
-{
-   $projects = project::where([
-    ['name', '!=', Null],
-    [function($query) use ($request){
-        if (($term = $request->term)){
-            $query->orWhere('name', 'LIKE', '%' . $term . '%')->get();
-        }
-    }]
-   ])->orderBy("id", "desc")
-   ->pagination(10);
-   //$projects = project::latest()->paginate(5);
-
-   return view('project.view', compact('projects'))
-   ->with('i', (request()->input('page', 1) -1) *5);
-}
-
-
-// public function index()
+// public function search(Request $request)
 // {
-//         $project = Project::query();
-//         if (request('term')) {
-//             $project->where('name', 'Like', '%' . request('term') . '%');
-//         }
+//     $products = Crud::where('title', 'like', '%' . $request->term . '%')
+//         ->orderBy('id', 'desc')
+//         ->get();
 
-//         return $project->orderBy('id', 'DESC')->paginate(10);
+//     return view('product.search', ['products' => $products]);
 // }
 
+public function search(Request $request)
+{
+    $term = $request->input('term');
+
+    if (!$term) {
+        return view('product.search', ['products' => [], 'term' => $term]);
+    }
+
+    $products = Crud::where('title', 'like', '%' . $term . '%')
+        ->orderBy('id', 'desc')
+        ->get();
+
+    return view('product.search', ['products' => $products, 'term' => $term]);
 }
+
+
+}
+ 

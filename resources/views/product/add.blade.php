@@ -8,8 +8,11 @@
 
 
  
-			<h1 class="display-one mt-2"><spam style="color:red">TRU</spam> - Add</h1>
-			<div class="text-left"><a href="/product" class="btn btn-outline-primary">Product List</a></div>
+		
+			<div class="row">
+				<div class="col"><h2 class="display-one mt-2">Tru</h2></div>
+				<div class="col"><a href="/product" class="btn btn-outline-primary">Product List</a></div>
+			</div>
 
 			<form id="add-frm" method="POST" action="/product" class=" p-3 mt-2">
 				<div class="mb-4">
