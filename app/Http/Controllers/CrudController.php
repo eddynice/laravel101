@@ -36,10 +36,13 @@ public function store(Request $request)
     // return redirect('product/' . $newPost->id . '/edit');
 }
 
-public function show(Product $product)
+public function show($id)
 {
-    //
+    $product = crud::find($id);
+
+    return view('product.show', ['product' => $product]);
 }
+
 
 
 public function edit($id)
@@ -79,14 +82,6 @@ public function destroy($id)
     return redirect('product/');
 }
 
-// public function search(Request $request)
-// {
-//     $products = Crud::where('title', 'like', '%' . $request->term . '%')
-//         ->orderBy('id', 'desc')
-//         ->get();
-
-//     return view('product.search', ['products' => $products]);
-// }
 
 public function search(Request $request)
 {

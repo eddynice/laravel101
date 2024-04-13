@@ -49,7 +49,7 @@
                 @csrf 
 				@method('PUT')
 				<div class=" mt-4">
-					<button class="btn btn-primary p-3">Saves Update</button>
+					<button class="btn btn-primary p-2">Saves Update</button>
 				</div>
 			</form>
 		

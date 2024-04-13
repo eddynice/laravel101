@@ -59,7 +59,7 @@
 
 				@csrf
 
-				<div class="control-group  text-left mt-2"><button class="btn btn-primary p-3">Add New</button></div>
+				<div class="control-group  text-left mt-2"><button class="btn btn-primary p-2">Add New</button></div>
 			</form>
 		</div>
 </div>

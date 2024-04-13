@@ -11,6 +11,7 @@ Route::get('/product', [CrudController::class, 'index'])->middleware('auth');
 
 Route::get('/search', [CrudController::class, 'search'])->name('product.search');
 
+Route::get('/product/{id}', [CrudController::class, 'show'])->name('product.show');
 
 Route::get('/product/create', [CrudController::class, 'create']);
 Route::post('/product', [CrudController::class, 'store']);
