@@ -15,7 +15,7 @@
 		<div class="text-center pt-5">
 			<div class="row">
 				<div class="col"><h1 h2 class="display-one mt-2">Tru</h2></div>
-				<div class="col"><a href="/product" class="btn btn-outline-primary">Product List</a></div>
+				<div class="col"><a href="/product" class="btn btn-outline-primary">Product Lists</a></div>
 			</div>
 
 			
